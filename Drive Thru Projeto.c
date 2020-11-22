@@ -21,34 +21,33 @@ int quantidade =0;
 int escolha=0;
 float compra_final=0;
 int pagamento;
+int i=4;
 
 int validacao(){
 	char cartao[16];
 	int tamanho;
 	 FILE *cat=fopen("Cartao.txt", "w+");
 	do{
-		printf("\nDigite o numero de seu cartão:");
+		printf("\nDigite o numero de seu cartÃ£o:");
 		scanf("%s",&cartao);
 		
+		
+		
 		tamanho=strlen(cartao);
-		putchar(cartao[4]='*');
-		putchar(cartao[5]='*');
-		putchar(cartao[6]='*');
-		putchar(cartao[7]='*');
-		putchar(cartao[8]='*');
-		putchar(cartao[9]='*');
-		putchar(cartao[10]='*');
-		putchar(cartao[11]='*');
+		for(i=4;i<12;i++){
+			putchar(cartao[i]='*');
+		}
+		
 	
-		if(tamanho!=16){
+			if(tamanho!=16){
 			system("cls");
-			printf("\n Numero de cartão inválido!");
+			printf("\n Numero de cartÃ£o invÃ¡lido!");
 		}
 		else{
 			
-			printf("\nNumero de cartão validado!\n");
-			printf("\n Total pago em Cartão");
-			fprintf(cat,"\n Pagamento efetuado com cartão\n Numero:%s", cartao);
+			printf("\nNumero de cartÃ£o validado!\n");
+			printf("\n Total pago em CartÃ£o");
+			fprintf(cat,"\n Pagamento efetuado com cartÃ£o\n Numero:%s", cartao);
 		}
 		
 	}while(tamanho!=16);
@@ -62,15 +61,15 @@ int main(void)
  	printf("\n Bem-Vindo(a) ao Drive Thru do Mickey & Donalds!\n");
  	do{
 	 
- 	printf("\n Esse é o nosso cardápio. Por favor, escolha qual deseja:\n");
- 	printf("\n Para sair, digite '0' e dê <Enter>\n\n");
- 	printf("\n Opção 1 - Mic Burguer.............R$9.50");
- 	printf("\n Opção 2 - Mic Duplo Furioso.......R$8.50");
- 	printf("\n Opção 3 - Mic Chicken.............R$7.50\n");
+ 	printf("\n Esse Ã© o nosso cardÃ¡pio. Por favor, escolha qual deseja:\n");
+ 	printf("\n Para sair, digite '0' e dÃª <Enter>\n\n");
+ 	printf("\n OpÃ§Ã£o 1 - Mic Burguer.............R$9.50");
+ 	printf("\n OpÃ§Ã£o 2 - Mic Duplo Furioso.......R$8.50");
+ 	printf("\n OpÃ§Ã£o 3 - Mic Chicken.............R$7.50\n");
  	scanf("%i", &opcao);
  		if(opcao>3){
 		 
- 			printf("\nOpção escolhida é inválida");
+ 			printf("\nOpÃ§Ã£o escolhida Ã© invÃ¡lida");
  			return 0;}
  			else
  		 
@@ -82,7 +81,7 @@ int main(void)
 	 	break;
 	case 1:
 		system("cls");
-		printf("\n Opção escolhida: Mic Burguer....R$9.50");
+		printf("\n OpÃ§Ã£o escolhida: Mic Burguer....R$9.50");
 		printf("\n Por favor, informe quantos deseja:\n");
 		scanf("%i", &quantidade);
 		if(quantidade==0){
@@ -94,13 +93,13 @@ int main(void)
 		total_lanche1= lanche1*quantidade;
 		fprintf(file, "Lanche selecionado: Mic burguer");
 		fprintf(file,"\nQuantidade de Mic Burguer: %i", quantidade);
-		fprintf(file,"\nO valor unitário é: R$9,50");
+		fprintf(file,"\nO valor unitÃ¡rio Ã©: R$9,50");
 		
 		
 		break;
 	case 2:
 		system("cls");
-		printf("\n Opção escolhida: Mic Duplo Furioso....R$8.50");
+		printf("\n OpÃ§Ã£o escolhida: Mic Duplo Furioso....R$8.50");
 		printf("\n Por favor, informe quantos deseja:\n");
 		scanf("%i", &quantidade);
 			if(quantidade==0){
@@ -112,11 +111,11 @@ int main(void)
 		total_lanche2= lanche2*quantidade;
 		fprintf(file,"\nLanche selecionado: Mic Duplo Furioso");
 		fprintf(file,"\nQuantidade de Mic Duplo Furioso: %i", quantidade);
-		fprintf(file,"\n O valor unitário é: R$8,50");
+		fprintf(file,"\n O valor unitÃ¡rio Ã©: R$8,50");
 		break;
 	case 3:
 		system("cls");
-		printf("\n Opção escolhida: Mic Chicken....R$7.50");
+		printf("\n OpÃ§Ã£o escolhida: Mic Chicken....R$7.50");
 		printf("\n Por favor, informe quantos deseja:\n");
 		scanf("%i", &quantidade);
 			if(quantidade==0){
@@ -128,14 +127,14 @@ int main(void)
 		total_lanche3=lanche3*quantidade;
 		fprintf(file,"\nLanche selecionado: Mic Chicken");
 		fprintf(file,"\nQuantidade de Mic Chicken: %i", quantidade);
-		fprintf(file,"\nO valor unitário é: R$7,50");
+		fprintf(file,"\nO valor unitÃ¡rio Ã©: R$7,50");
 		break; 
 	 }
 
     
 	 printf("\nDeseja Finalizar compra?\n");
 	 printf("\n 1-sim");
-	 printf("\n2-não");
+	 printf("\n2-nÃ£o");
 	 scanf("%i", &escolha);
 	 system("cls");
 	
@@ -144,10 +143,10 @@ int main(void)
 	 	compra_final=total_lanche1+total_lanche2+total_lanche3;
 	 	fprintf(file,"\nO valor total deu:R$ %.2f\n", compra_final);
 		}else if(escolha>2)
-		{  printf("\n Escolha inválida!");
+		{  printf("\n Escolha invÃ¡lida!");
 		return 0;
 		}else if(escolha<1)
-		{ printf("\n Escolha inválida!");
+		{ printf("\n Escolha invÃ¡lida!");
 		return 0;
 		}
 	
@@ -155,7 +154,7 @@ int main(void)
 	int i;
 	srand(time(NULL));
 	for(i=0;i<1;i++){
-		fprintf(file,"\nSeu código de pedido é: %d", rand()%1000);
+		fprintf(file,"\nSeu cÃ³digo de pedido Ã©: %d", rand()%1000);
 		
 	}
 
@@ -163,7 +162,7 @@ int main(void)
  FILE *fil=fopen("Pagamento.txt","w+");
  printf("\n\n Estamos quase acabando! Por favor, informe a forma de pagamento:\n");
  printf("\n O valor total foi de:R$%.2f\n", compra_final);
- printf("\n 1 - Dinheiro   \n 2 - Cartão Crédito\n 3 - Cartão Débito \n 4 - Cheque\n");
+ printf("\n 1 - Dinheiro   \n 2 - CartÃ£o CrÃ©dito\n 3 - CartÃ£o DÃ©bito \n 4 - Cheque\n");
  scanf("%i", &pagamento);
  	if(pagamento==1)
  	{
@@ -177,22 +176,22 @@ int main(void)
 	 }
 	 else if(pagamento==2){
 			  
-	 	printf("\n Pagamento  em Cartão Crédito\n");
+	 	printf("\n Pagamento  em CartÃ£o CrÃ©dito\n");
 	 	validacao();
 	 	system("cls");
 	 	system("color D");
-	 	printf("\nPedido pago com Cartão Crédito");
-	 	fprintf(fil,"\n Pagamento em Cartão Crédito");
+	 	printf("\nPedido pago com CartÃ£o CrÃ©dito");
+	 	fprintf(fil,"\n Pagamento em CartÃ£o CrÃ©dito");
 	 	fprintf(fil,"\nO valor total pago foi de: R$%.2f", compra_final);
 	 	}
 	 	
 	 	else if(pagamento==3){
-	 		printf("\n Pagamento com: Cartão Débito\n");
+	 		printf("\n Pagamento com: CartÃ£o DÃ©bito\n");
 	 		validacao();
 	 			system("cls");
 	 	system("color D");
-	 	printf("\nPedido pago com Cartão Débito");
-	 		fprintf(fil,"\n Pagamento em Cartão Débito\n");
+	 	printf("\nPedido pago com CartÃ£o DÃ©bito");
+	 		fprintf(fil,"\n Pagamento em CartÃ£o DÃ©bito\n");
 	 		fprintf(fil,"\nO valor total pago foi de:R$%.2f", compra_final);
 
 		 }
@@ -214,14 +213,3 @@ int main(void)
 		 }
 		 
 }
- 	
-	
-
-	
-
- 
- 
- 	
- 	
- 	
- 
