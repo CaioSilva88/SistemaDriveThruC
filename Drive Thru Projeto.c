@@ -58,6 +58,7 @@ int main(void)
  	
  	FILE *file= fopen("Produtos.txt","w+");
  	setlocale(LC_ALL,"portuguese");
+
  	printf("\n Bem-Vindo(a) ao Drive Thru do Mickey & Donalds!\n");
  	do{
 	 
@@ -169,6 +170,7 @@ int main(void)
  		printf("\nTotal pago em: Dinheiro");
  		fprintf(fil,"Pagamento em Dinheiro\n");
  		fprintf(fil,"O valor pago foi de:R$%.2f", compra_final);
+                fprintf(fil,"obrigado e volte sempre");
  		system("cls");
  		system("color 2");
  		printf("\nPedido pago com: Dinheiro");
